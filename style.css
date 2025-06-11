@@ -1,341 +1,376 @@
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Define a paleta de cores neutras, pastel verde e tons de preto */
+:root {
+    /* Tons de Verde Pastel Refinados para suavidade e modernidade */
+    --color-pastel-green-light: #F2F9F2; /* Um verde pastel muito claro e levemente amarelado, quase branco */
+    --color-pastel-green-medium: #C9E6C9; /* Verde pastel médio, suave e acolhedor */
+    --color-pastel-green-dark: #A5D6A7;  /* Verde pastel mais profundo e sereno para acentos */
+
+    /* Cores para os botões primários (verde pastel mais visível, mas suave) */
+    --color-button-gradient-a: #A0D468; /* Verde um pouco mais vibrante para o início do gradiente */
+    --color-button-gradient-b: #7CB342; /* Verde mais escuro e rico para o final do gradiente */
+
+    /* Cores do Gradiente para a Seção Principal (Conectando Corações e Causas) */
+    --color-home-gradient-start: #E0F2F1; /* Verde pastel muito claro para o topo do gradiente da seção home */
+    --color-home-gradient-end: #D0EBEA;   /* Verde pastel ligeiramente mais escuro para a base do gradiente da seção home */
+
+
+    /* Cores Neutras Aprimoradas */
+    --color-white: #FFFFFF; /* Branco puro para elementos de destaque */
+    --color-off-white: #FDFDFD; /* Quase branco, mas com um toque de calor para fundos */
+    --color-light-grey-bg: #F7F7F7; /* Um cinza muito claro para fundos de seções */
+    --color-light-grey-border: #E8E8E8; /* Cinza claro para bordas, mais suave */
+    --color-medium-grey: #B0BEC5; /* Cinza médio para texto secundário e placeholders */
+    --color-dark-grey: #546E7A; /* Cinza escuro para texto principal, mais suave que o preto */
+    --color-true-black: #1A1A1A; /* Definindo um preto suave para todos os textos principais e títulos */
+
+    /* Sombras refinadas para mais profundidade e suavidade */
+    --shadow-light: 0 8px 20px rgba(0, 0, 0, 0.04); /* Sombra mais difusa e menos opaca */
+    --shadow-medium: 0 16px 40px rgba(0, 0, 0, 0.08); /* Sombra mais presente, mas ainda suave */
+    --shadow-strong: 0 25px 60px rgba(0, 0, 0, 0.15); /* Sombra para modais, mais difundida */
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  background-color: #e8f5e9; /* verde pastel bem claro */
-  color: #2e4d25; /* verde escuro suave para texto */
-  padding-bottom: 40px;
-  animation: fadeInBody 1s ease forwards;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-off-white); /* Fundo neutro suave */
+    color: var(--color-true-black); /* Todas as fontes do corpo em preto */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    line-height: 1.8; /* Aumenta o espaçamento entre linhas para melhor legibilidade e amplitude */
+    text-rendering: optimizeLegibility; /* Otimiza a renderização do texto */
+    -webkit-font-smoothing: antialiased; /* Suaviza as fontes para Webkit */
+    -moz-osx-font-smoothing: grayscale; /* Suaviza as fontes para Firefox */
 }
 
-@keyframes fadeInBody {
-  from {opacity: 0;}
-  to {opacity: 1;}
+/* Ajuste para o container principal para ser mais amplo */
+.container {
+    max-width: 1200px; /* Aumenta a largura máxima do container */
+    padding-left: 2.5rem; /* Mais padding nas laterais para um visual amplo */
+    padding-right: 2.5rem;
 }
 
-header {
-  background-color: #a5d6a7; /* verde pastel médio */
-  color: #1b3a14; /* verde escuro */
-  padding: 1.2rem 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 0 0 15px 15px;
-  animation: slideDown 0.7s ease forwards;
+/* Classes Tailwind customizadas */
+.bg-pastel-green-light { background-color: var(--color-pastel-green-light); }
+.bg-pastel-green-medium { background-color: var(--color-pastel-green-medium); }
+.bg-pastel-green-dark { background-color: var(--color-pastel-green-dark); }
+
+.bg-off-white { background-color: var(--color-off-white); } /* Novo fundo para cards e seções */
+.bg-light-grey-bg { background-color: var(--color-light-grey-bg); } /* Novo fundo para seções com contraste suave */
+
+/* Nova classe para o gradiente da seção principal */
+.bg-home-gradient {
+    background: linear-gradient(180deg, var(--color-home-gradient-start), var(--color-home-gradient-end));
 }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+
+.text-black-neutral { color: var(--color-true-black); } /* Usa o preto definido */
+.text-dark-grey-neutral { color: var(--color-true-black); } /* Usa o preto definido para textos principais */
+.text-medium-grey-neutral { color: var(--color-true-black); } /* Agora em preto, para consistência com o pedido "todas as fontes pretas" */
+.text-white { color: var(--color-white); }
+
+.border-light-grey-neutral { border-color: var(--color-light-grey-border); } /* Nova cor de borda */
+
+
+/* Estilos globais para elementos */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700; /* Fontes mais bold para títulos */
+    color: var(--color-true-black); /* Títulos em preto */
+    letter-spacing: -0.03em; /* Pequeno ajuste no espaçamento de letras para títulos, mais moderno */
 }
 
-header h1 {
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: 1.2px;
-}
-
-nav a {
-  color: #1b3a14;
-  margin-left: 1.5rem;
-  text-decoration: none;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 0.3rem 0.6rem;
-  border-radius: 6px;
-  transition: background-color 0.3s, color 0.3s, transform 0.2s;
-  font-size: 1rem;
-}
-
-nav a:hover,
-nav a.active {
-  background-color: #81c784; /* tom mais forte do verde pastel */
-  color: #ffffff;
-  text-decoration: none;
-  transform: scale(1.05);
-}
-
-main {
-  max-width: 900px;
-  margin: 2.5rem auto;
-  padding: 2rem 2rem 3rem;
-  background-color: #f9fff9; /* quase branco com toque verde */
-  border-radius: 15px;
-  box-shadow: 0 8px 30px rgba(54, 122, 56, 0.15);
-  min-height: 520px;
-  transition: all 0.3s ease;
-  animation: fadeInMain 1s ease 0.5s forwards;
-  opacity: 0;
-}
-
-@keyframes fadeInMain {
-  to {
-    opacity: 1;
-  }
+h1 {
+    font-size: 4.8rem; /* Título maior para impacto */
 }
 
 h2 {
-  margin-bottom: 1.5rem;
-  color: #357a38;
-  font-weight: 700;
-  border-left: 5px solid #81c784;
-  padding-left: 0.6rem;
-  animation: slideLeft 0.7s ease forwards;
+    font-size: 3.8rem; /* Título secundário maior */
 }
 
-@keyframes slideLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+p {
+    font-weight: 400; /* Peso normal para parágrafos */
+    font-size: 1.2rem; /* Parágrafos ligeiramente maiores para melhor leitura */
+    color: var(--color-true-black); /* Parágrafos padrão em preto */
 }
 
-/* Formulário */
-form {
-  display: flex;
-  flex-direction: column;
-  animation: fadeInForm 1s ease 0.8s forwards;
-  opacity: 0;
+/* Animações e Transições Aprimoradas */
+.fade-in {
+    animation: fadeIn 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; /* Animação mais suave e mais longa */
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(50px); } /* Inicia mais abaixo e transparente */
+    to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeInForm {
-  to {
-    opacity: 1;
-  }
+/* Estilo para Botões Primários (Verde Pastel) */
+.button-animation {
+    transition: all 0.45s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transição mais elástica e longa */
+    box-shadow: var(--shadow-light); /* Sombra inicial suave */
+    font-weight: 600; /* Texto do botão mais encorpado */
+    letter-spacing: 0.03em; /* Pequeno espaçamento para melhor leitura */
+    border: none; /* Remove bordas para um look mais limpo */
+    border-radius: 9999px; /* Formato de pílula */
+    background: linear-gradient(145deg, var(--color-button-gradient-a), var(--color-button-gradient-b)); /* Gradiente mais visível com novas cores */
+    color: var(--color-white); /* Cor do texto branco */
+    padding: 1.3rem 3rem; /* Aumenta o padding para um botão mais substancial */
+    font-size: 1.2rem; /* Aumenta a fonte do botão */
+    cursor: pointer; /* Adiciona cursor de ponteiro */
+}
+.button-animation:hover {
+    transform: translateY(-10px) scale(1.05); /* Eleva mais e aumenta ligeiramente */
+    box-shadow: var(--shadow-medium); /* Sombra mais pronunciada ao passar o mouse */
+    background: linear-gradient(145deg, var(--color-button-gradient-b), var(--color-button-gradient-a)); /* Inverte o gradiente no hover */
+}
+.button-animation:active {
+    transform: translateY(-5px); /* Efeito de "clique" mais profundo */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-label {
-  margin-top: 1.2rem;
-  font-weight: 600;
-  color: #2e4d25;
+/* Estilo para Botões Secundários (Neutros) */
+.button-secondary-neutral {
+    background-color: var(--color-white); /* Fundo branco para botões secundários */
+    color: var(--color-true-black); /* Texto em preto */
+    border: 1px solid var(--color-light-grey-border); /* Borda suave */
+    transition: all 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: var(--shadow-light);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    border-radius: 9999px; /* Formato de pílula */
+    padding: 1.3rem 3rem; /* Aumenta o padding para um botão mais substancial */
+    font-size: 1.2rem; /* Aumenta a fonte do botão */
+    cursor: pointer;
+}
+.button-secondary-neutral:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: var(--shadow-medium);
+    border-color: var(--color-medium-grey); /* Borda mais escura no hover */
+    background-color: var(--color-light-grey-bg); /* Leve mudança de fundo para um cinza muito claro no hover */
+    color: var(--color-true-black); /* Cor do texto agora em preto no hover */
+}
+.button-secondary-neutral:active {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-input[type="text"],
-select,
+
+.card-animation {
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); /* Transição mais suave e elástica */
+    box-shadow: var(--shadow-light); /* Sombra inicial sutil */
+    border: 1px solid var(--color-light-grey-border); /* Borda sutil */
+    background-color: var(--color-white); /* Fundo branco para cards */
+    padding: 3rem; /* Mais padding dentro dos cards para amplitude */
+    border-radius: 2rem; /* Cantos mais arredondados para um visual suave */
+}
+.card-animation:hover {
+    transform: translateY(-18px) scale(1.02); /* Eleva mais e aumenta ligeiramente */
+    box-shadow: var(--shadow-medium); /* Sombra mais forte e difusa */
+    border-color: var(--color-pastel-green-medium); /* Borda sutil no hover */
+}
+
+/* Animação para links de navegação no cabeçalho */
+.nav-link-animation {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transição para todas as propriedades */
+    padding: 1rem 1.8rem; /* Aumentei o padding para um visual mais cheio e arredondado */
+    border-radius: 9999px; /* Formato de pílula */
+    color: var(--color-white); /* Cor do texto padrão (branco) */
+    font-weight: 500; /* Ajuste no peso da fonte */
+    text-decoration: none; /* Remove sublinhado padrão */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Sombra inicial mais visível e suave */
+    cursor: pointer;
+}
+.nav-link-animation::after {
+    content: none; /* Remove a linha de sublinhado animada anterior */
+}
+.nav-link-animation:hover {
+    transform: translateY(-6px) scale(1.05); /* Elevação e leve escala no hover, mais pronunciado */
+    background: linear-gradient(145deg, var(--color-pastel-green-medium), var(--color-pastel-green-dark)); /* Gradiente sutil no hover */
+    color: var(--color-white); /* Garante que o texto fique branco no hover */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18); /* Sombra mais suave e difusa no hover para realçar o formato */
+}
+.nav-link-animation:active {
+    transform: translateY(-3px); /* Efeito de "clique" um pouco mais profundo */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Estilo para placeholder de campos */
+input::placeholder, textarea::placeholder {
+    color: var(--color-true-black); /* Placeholder em preto */
+    opacity: 0.7; /* Ligeiramente mais transparente para contraste */
+    font-weight: 300; /* Peso da fonte mais leve */
+}
+
+/* Estilos para campos de formulário */
+input[type="text"], input[type="email"], textarea, select {
+    border: 1px solid var(--color-light-grey-border); /* Borda mais suave */
+    border-radius: 15px; /* Bordas mais arredondadas para um visual moderno */
+    padding: 1.2rem 1.5rem; /* Aumenta o padding para um visual mais amplo e tátil */
+    font-size: 1.1rem; /* Fonte ligeiramente maior */
+    color: var(--color-true-black); /* Cor do texto dos campos em preto */
+    outline: none; /* Remove outline padrão */
+    background-color: var(--color-white); /* Fundo branco para campos */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus, select:focus {
+    border-color: var(--color-pastel-green-dark); /* Borda verde pastel no focus */
+    box-shadow: 0 0 0 7px rgba(111, 192, 183, 0.25); /* Sombra suave e um pouco mais difusa no focus, ligeiramente maior */
+}
+
 textarea {
-  padding: 0.7rem 1rem;
-  margin-top: 0.4rem;
-  border: 2px solid #c8e6c9;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #2e4d25;
-  background-color: #e6f2e6;
-  transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
-  resize: vertical;
+    resize: vertical; /* Permite redimensionar verticalmente */
+    min-height: 10rem; /* Altura mínima para a textarea mais generosa */
 }
 
-input[type="text"]:focus,
-select:focus,
-textarea:focus {
-  border-color: #4caf50;
-  outline: none;
-  background-color: #d0f0d0;
-  box-shadow: 0 0 8px #4caf50aa;
+/* Estilo para os labels do formulário */
+label {
+    font-size: 1.05rem; /* Tamanho da fonte ligeiramente maior */
+    font-weight: 500; /* Um pouco mais de peso */
+    color: var(--color-true-black); /* Labels em preto */
+    margin-bottom: 0.6rem; /* Espaçamento abaixo do label */
 }
 
-input[readonly] {
-  background-color: #dcedd7;
-  cursor: not-allowed;
-}
-
-button[type="submit"] {
-  margin-top: 2rem;
-  padding: 0.9rem 1.5rem;
-  background-color: #81c784;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 1.2rem;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 5px 15px rgba(129, 199, 132, 0.6);
-  transition: background-color 0.4s, box-shadow 0.3s, transform 0.2s;
-  max-width: 220px;
-  align-self: flex-start;
-}
-
-button[type="submit"]:hover {
-  background-color: #4caf50;
-  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.8);
-  transform: scale(1.05);
-}
-
-span {
-  color: #d32f2f; /* vermelho suave para obrigatórios */
-  font-weight: 700;
-}
-
-/* Mensagem de feedback */
-#msg {
-  margin-top: 1.2rem;
-  font-weight: 700;
-  font-size: 1rem;
-  transition: opacity 0.5s ease;
-}
-
-/* Cards das necessidades */
-#listaNecessidades {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.6rem;
-  justify-content: center;
-}
-
-.card {
-  background-color: #c8e6c9; /* verde pastel claro */
-  border-radius: 15px;
-  box-shadow: 0 6px 18px rgba(54, 122, 56, 0.2);
-  padding: 1.2rem 1.6rem;
-  width: 100%;
-  max-width: 320px;
-  display: flex;
-  flex-direction: column;
-  color: #1b3a14;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  opacity: 0;
-  animation: fadeInCard 0.7s ease forwards;
-}
-
-.card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 12px 30px rgba(54, 122, 56, 0.4);
-}
-
-.card h3 {
-  color: #357a38;
-  margin-bottom: 0.6rem;
-  font-weight: 700;
-  font-size: 1.3rem;
-}
-
-.card p {
-  flex-grow: 1;
-  margin-bottom: 0.7rem;
-  font-weight: 500;
-  line-height: 1.3;
-}
-
-.card .tipo-ajuda {
-  font-weight: 700;
-  color: #2e4d25;
-  margin-top: auto;
-  font-style: italic;
-}
-
-@keyframes fadeInCard {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Filtros */
-.filtros {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  animation: fadeInFilters 1s ease 0.6s forwards;
-  opacity: 0;
-}
-
-@keyframes fadeInFilters {
-  to {
-    opacity: 1;
-  }
-}
-
-.filtros input,
-.filtros select {
-  padding: 0.7rem 1rem;
-  font-size: 1rem;
-  border-radius: 10px;
-  border: 2px solid #a5d6a7;
-  flex: 1;
-  min-width: 220px;
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.filtros input:focus,
-.filtros select:focus {
-  border-color: #4caf50;
-  outline: none;
-  box-shadow: 0 0 8px #4caf50aa;
-}
-
-/* Responsividade */
-@media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  nav a {
-    margin-left: 0;
-    margin-right: 1rem;
-    margin-top: 0.5rem;
-  }
-
-  #listaNecessidades {
-    flex-direction: column;
+/* Estilo para o modal de mensagem */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed; /* Posição fixa na tela */
+    z-index: 1000; /* Acima de outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    overflow: auto; /* Habilita scroll se conteúdo for muito grande */
+    background-color: rgba(0,0,0,0.85); /* Fundo semi-transparente mais escuro para maior foco */
+    display: flex;
+    justify-content: center;
     align-items: center;
-  }
+    backdrop-filter: blur(12px); /* Efeito de blur mais intenso no fundo */
 }
 
-/* Seções escondidas */
-section {
-  display: none;
+.modal-content {
+    background-color: var(--color-white); /* Conteúdo do modal em branco puro */
+    margin: auto;
+    padding: 45px; /* Mais padding para um visual mais premium */
+    border-radius: 35px; /* Bordas bem arredondadas para suavidade */
+    box-shadow: var(--shadow-strong); /* Sombra forte e profunda */
+    width: 90%; /* Mais responsivo em telas menores */
+    max-width: 750px; /* Ligeiramente mais largo para detalhes */
+    text-align: center;
+    position: relative;
+    animation: scaleIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animação de "bounce" mais pronunciada e suave */
 }
 
-section.active {
-  display: block;
-  animation: fadeInSection 0.7s ease forwards;
-  opacity: 0;
+@keyframes scaleIn {
+    from { transform: scale(0.3); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
-@keyframes fadeInSection {
-  to {
-    opacity: 1;
-  }
+.modal-close {
+    color: var(--color-true-black); /* Ícone de fechar em preto */
+    position: absolute;
+    top: 30px; /* Ajuste de posição */
+    right: 35px; /* Ajuste de posição */
+    font-size: 45px; /* Ícone de fechar maior */
+    font-weight: normal; /* Remove negrito */
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
-/* Footer */
-footer {
-  margin-top: 3rem;
-  text-align: center;
-  color: #4a704a;
-  font-weight: 600;
-  font-size: 0.9rem;
-  animation: fadeInFooter 1s ease 1.5s forwards;
-  opacity: 0;
+.modal-close:hover,
+.modal-close:focus {
+    color: var(--color-true-black); /* Cor preta no hover */
+    transform: rotate(270deg) scale(1.1); /* Animação de rotação mais completa e levemente maior no hover */
+    text-decoration: none;
 }
 
-@keyframes fadeInFooter {
-  to {
-    opacity: 1;
-  }
+/* Estilos para o spinner de carregamento */
+.loading-spinner {
+    border: 4px solid rgba(255, 255, 255, 0.4);
+    border-top: 4px solid var(--color-button-green-start); /* Cor do spinner baseada nas cores do botão */
+    border-radius: 50%;
+    width: 35px; /* Spinner ligeiramente maior */
+    height: 35px;
+    animation: spin 0.6s linear infinite; /* Spinner um pouco mais rápido */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsividade adicional */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 960px;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    h1 {
+        font-size: 4rem;
+    }
+    h2 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    h1 {
+        font-size: 3.5rem;
+    }
+    h2 {
+        font-size: 2.8rem;
+    }
+    p {
+        font-size: 1.05rem;
+    }
+    .modal-content {
+        padding: 30px;
+        border-radius: 20px;
+    }
+    .button-animation, .button-secondary-neutral {
+        padding: 1rem 2.2rem;
+        font-size: 1.1rem;
+    }
+    .nav-link-animation {
+        padding: 0.8rem 1.4rem; /* Ajuste para responsividade e visual mais arredondado */
+        font-size: 0.95rem; /* Ajuste para responsividade */
+    }
+    /* Ajustes para o formulário em telas menores */
+    input[type="text"], input[type="email"], textarea, select {
+        padding: 1rem 1.2rem;
+        font-size: 1rem;
+    }
+    label {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.8rem;
+    }
+    h2 {
+        font-size: 2.2rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+    .button-animation, .button-secondary-neutral {
+        padding: 0.8rem 1.8rem;
+        font-size: 0.95rem;
+    }
+    .modal-close {
+        font-size: 38px;
+        top: 20px;
+        right: 20px;
+    }
+    .loading-spinner {
+        width: 30px;
+        height: 30px;
+    }
 }

@@ -1,101 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Plataforma Voluntária Local</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Conexão Voluntária Local</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link para o arquivo CSS separado -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <header>
-    <h1>Plataforma de Conexão Voluntária Local</h1>
-    <nav>
-      <a href="#" id="navHome" class="active">Home</a>
-      <a href="#" id="navCadastro">Cadastrar Necessidade</a>
-      <a href="#" id="navVisualizacao">Ver Necessidades</a>
-    </nav>
-  </header>
+<body class="bg-pastel-green-light">
 
-  <main>
-    <!-- Home -->
-    <section id="home" class="active">
-      <h2>Bem-vindo(a) à Plataforma Voluntária</h2>
-      <p>Esta plataforma conecta instituições sociais com voluntários dispostos a ajudar, facilitando o cadastro e a visualização de demandas locais.</p>
-      <p>Cadastre uma necessidade ou encontre uma oportunidade para colaborar!</p>
-    </section>
+    <!-- Cabeçalho -->
+    <header class="bg-pastel-green-dark shadow-lg py-4">
+        <nav class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#" id="homeLink" class="text-white text-2xl font-bold rounded-md px-3 py-2 hover:bg-opacity-80 transition-all">
+                Plataforma Voluntária
+            </a>
+            <ul class="flex space-x-6">
+                <li><a href="#" id="cadastroLink" class="text-white text-lg font-medium hover:underline hover:text-opacity-90 transition-all button-animation px-3 py-2 rounded-md">Cadastrar Necessidade</a></li>
+                <li><a href="#" id="visualizacaoLink" class="text-white text-lg font-medium hover:underline hover:text-opacity-90 transition-all button-animation px-3 py-2 rounded-md">Ver Necessidades</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Cadastro -->
-    <section id="cadastro">
-      <h2>Cadastro de Necessidade</h2>
-      <form id="formNecessidade">
-        <label for="nomeInstituicao">Nome da Instituição <span>*</span></label>
-        <input type="text" id="nomeInstituicao" required />
+    <!-- Conteúdo Principal -->
+    <main id="app-root" class="flex-grow container mx-auto px-4 py-8 fade-in">
+        <!-- O conteúdo das páginas será carregado aqui via JavaScript -->
+    </main>
 
-        <label for="tipoAjuda">Tipo de Ajuda <span>*</span></label>
-        <select id="tipoAjuda" required>
-          <option value="" disabled selected>Selecione</option>
-          <option value="Educação">Educação</option>
-          <option value="Saúde">Saúde</option>
-          <option value="Meio Ambiente">Meio Ambiente</option>
-          <option value="Doação de Alimentos">Doação de Alimentos</option>
-          <option value="Doação de Roupas">Doação de Roupas</option>
-          <option value="Outros">Outros</option>
-        </select>
+    <!-- Rodapé -->
+    <footer class="bg-pastel-green-dark text-white text-center py-6 mt-auto">
+        <p>&copy; 2024 Plataforma de Conexão Voluntária Local. Todos os direitos reservados.</p>
+    </footer>
 
-        <label for="titulo">Título da Necessidade <span>*</span></label>
-        <input type="text" id="titulo" required />
+    <!-- Modal de Mensagem -->
+    <div id="messageModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="modal-close" id="closeModalBtn">&times;</span>
+            <p id="modalMessage" class="text-text-dark text-lg font-medium"></p>
+        </div>
+    </div>
 
-        <label for="descricao">Descrição Detalhada <span>*</span></label>
-        <textarea id="descricao" rows="4" required></textarea>
-
-        <label for="cep">CEP <span>*</span></label>
-        <input type="text" id="cep" maxlength="9" pattern="\d{5}-?\d{3}" required placeholder="Ex: 12345-678" />
-
-        <label for="rua">Rua <span>*</span></label>
-        <input type="text" id="rua" readonly required />
-
-        <label for="bairro">Bairro <span>*</span></label>
-        <input type="text" id="bairro" readonly required />
-
-        <label for="cidade">Cidade <span>*</span></label>
-        <input type="text" id="cidade" readonly required />
-
-        <label for="estado">Estado <span>*</span></label>
-        <input type="text" id="estado" readonly required />
-
-        <label for="contato">Contato (email ou telefone) <span>*</span></label>
-        <input type="text" id="contato" required placeholder="email ou telefone" />
-
-        <button type="submit">Cadastrar Necessidade</button>
-      </form>
-      <p id="msg"></p>
-    </section>
-
-    <!-- Visualização -->
-    <section id="visualizacao">
-      <h2>Necessidades Cadastradas</h2>
-      <div class="filtros">
-        <input type="text" id="pesquisa" placeholder="Pesquisar por título ou descrição" />
-        <select id="filtroTipo">
-          <option value="">Todos os tipos</option>
-          <option value="Educação">Educação</option>
-          <option value="Saúde">Saúde</option>
-          <option value="Meio Ambiente">Meio Ambiente</option>
-          <option value="Doação de Alimentos">Doação de Alimentos</option>
-          <option value="Doação de Roupas">Doação de Roupas</option>
-          <option value="Outros">Outros</option>
-        </select>
-      </div>
-      <section id="listaNecessidades">
-        <!-- Cards de necessidades aparecem aqui -->
-      </section>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2025 Plataforma Voluntária - Todos os direitos reservados.</p>
-  </footer>
-
-  <script src="script.js"></script>
+    <!-- Link para o arquivo JavaScript separado -->
+    <script src="script.js"></script>
 </body>
 </html>
