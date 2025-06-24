@@ -14,7 +14,7 @@ Botões e Formulários Reimaginados:
 
 Os botões apresentam um formato de pílula moderno, com gradientes de verde pastel que os tornam visíveis e acessíveis, mas ainda suaves e elegantes.
 
-As interações (passar o mouse, clicar) são fluidas, com animações que adicionam um toque de vida à interface.
+As interações (ao passar o mouse, clicar) são fluidas, com animações que adicionam um toque de vida à interface.
 
 O formulário de cadastro foi cuidadosamente desenhado para ser intuitivo e esteticamente agradável, com campos de entrada suaves e bordas arredondadas.
 
@@ -24,8 +24,8 @@ Tipografia Refinada: Utilizamos a fonte Inter em pesos variados, garantindo que 
 
 🛠️ Tecnologias Utilizadas
 
-HTML5: Estrutura semântica do conteúdo.
+HTML: Estrutura semântica do conteúdo.
 
-Tailwind CSS: Framework de CSS utilitário para um desenvolvimento rápido e responsivo, focado em classes para o design moderno.
+CSS: Framework de CSS utilitário para um desenvolvimento rápido e responsivo, focado em classes para o design moderno.
 
-JavaScript (Puro): Lógica interativa, gerenciamento de páginas e integração com a API ViaCEP para auto-preenchimento de endereços.
+JavaScript: Lógica interativa, gerenciamento de páginas e integração com a API ViaCEP para auto-preenchimento de endereços.
