@@ -1,7 +1,6 @@
-// Array para armazenar as necessidades cadastradas
+
 let needs = [];
 
-// Referências aos elementos HTML
 const appRoot = document.getElementById('app-root');
 const homeLink = document.getElementById('homeLink');
 const cadastroLink = document.getElementById('cadastroLink');
@@ -10,27 +9,26 @@ const messageModal = document.getElementById('messageModal');
 const modalMessage = document.getElementById('modalMessage');
 const closeModalBtn = document.getElementById('closeModalBtn');
 
-// Function to show the message modal
+
 function showModal(message) {
-    modalMessage.innerHTML = message; // Use innerHTML to allow HTML tags in the details modal
+    modalMessage.innerHTML = message; 
     messageModal.classList.remove('hidden');
 }
 
-// Event listener to close the modal
+
 closeModalBtn.addEventListener('click', () => {
     messageModal.classList.add('hidden');
 });
 
-// Close the modal when clicking outside of it
+
 window.addEventListener('click', (event) => {
     if (event.target === messageModal) {
         messageModal.classList.add('hidden');
     }
 });
 
-// --- Page Rendering Functions ---
 
-// Renders the home page
+
 function renderHomePage() {
     appRoot.innerHTML = `
         <section class="text-center py-16 bg-off-white rounded-xl shadow-lg fade-in">
@@ -49,10 +47,10 @@ function renderHomePage() {
             </p>
         </section>
     `;
-    // Event listeners for the removed buttons are no longer needed
+    
 }
 
-// Renders the necessity registration page
+
 function renderCadastroPage() {
     appRoot.innerHTML = `
         <section class="bg-off-white p-10 rounded-xl shadow-lg fade-in max-w-4xl mx-auto">
@@ -153,13 +151,13 @@ function renderVisualizacaoPage() {
             </div>
         </section>
     `;
-    displayNeeds(needs); // Displays all necessities initially
+    displayNeeds(needs); 
     attachVisualizacaoListeners();
 }
 
-// --- Logic and Event Functions ---
 
-// Attaches listeners to the registration form
+
+
 function attachCadastroFormListeners() {
     const necessityForm = document.getElementById('necessityForm');
     const cepInput = document.getElementById('cep');
@@ -167,7 +165,7 @@ function attachCadastroFormListeners() {
 
     // Formats the CEP as the user types
     cepInput.addEventListener('input', (e) => {
-        let value = e.target.value.replace(/\D/g, ''); // Removes everything that is not a digit
+        let value = e.target.value.replace(/\D/g, ''); 
         if (value.length > 5) {
             value = value.substring(0, 5) + '-' + value.substring(5, 8);
         }
@@ -176,9 +174,9 @@ function attachCadastroFormListeners() {
 
     // ViaCEP Integration
     cepInput.addEventListener('blur', async () => {
-        const cep = cepInput.value.replace(/\D/g, ''); // Removes hyphens for the API
+        const cep = cepInput.value.replace(/\D/g, '');
         if (cep.length === 8) {
-            loadingSpinner.classList.remove('hidden'); // Shows the spinner
+            loadingSpinner.classList.remove('hidden');
             try {
                 const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
                 const data = await response.json();
@@ -196,7 +194,7 @@ function attachCadastroFormListeners() {
                 showModal('Erro ao conectar com a API ViaCEP. Tente novamente mais tarde.');
                 clearAddressFields();
             } finally {
-                loadingSpinner.classList.add('hidden'); // Hides the spinner
+                loadingSpinner.classList.add('hidden'); 
             }
         } else {
             clearAddressFields();
@@ -210,11 +208,11 @@ function attachCadastroFormListeners() {
         document.getElementById('state').value = '';
     }
 
-    // Form submission
+    
     necessityForm.addEventListener('submit', (event) => {
-        event.preventDefault(); // Prevents default form submission
+        event.preventDefault(); 
 
-        // Simple validation
+        
         const institutionName = document.getElementById('institutionName').value.trim();
         const helpType = document.getElementById('helpType').value.trim();
         const title = document.getElementById('title').value.trim();
@@ -227,16 +225,16 @@ function attachCadastroFormListeners() {
             return;
         }
 
-        // Basic CEP validation (format only)
+        
         const cepPattern = /^[0-9]{5}-?[0-9]{3}$/;
         if (!cepPattern.test(cep)) {
             showModal('Por favor, digite um CEP válido (Ex: 00000-000 ou 00000000).');
             return;
         }
 
-        // Creates the necessity object
+        
         const newNeed = {
-            id: Date.now(), // Unique ID based on timestamp
+            id: Date.now(), 
             institutionName: institutionName,
             helpType: helpType,
             title: title,
@@ -250,17 +248,17 @@ function attachCadastroFormListeners() {
             dateAdded: new Date().toLocaleDateString('pt-BR')
         };
 
-        needs.push(newNeed); // Adds to the array
+        needs.push(newNeed);
         showModal('Necessidade cadastrada com sucesso!');
-        necessityForm.reset(); // Clears the form
-        clearAddressFields(); // Ensures address fields are also cleared
+        necessityForm.reset(); 
+        clearAddressFields(); 
     });
 }
 
-// Displays necessities in cards
+
 function displayNeeds(filteredNeeds) {
     const needsList = document.getElementById('needsList');
-    if (!needsList) return; // Ensures the element exists
+    if (!needsList) return; 
 
     if (filteredNeeds.length === 0) {
         needsList.innerHTML = '<p class="col-span-full text-center text-medium-grey-neutral text-xl py-12">Nenhuma necessidade encontrada com os critérios de pesquisa/filtro.</p>';
@@ -279,7 +277,7 @@ function displayNeeds(filteredNeeds) {
     `).join('');
 }
 
-// Shows necessity details in a modal
+
 function showNeedDetails(id) {
     const need = needs.find(n => n.id === id);
     if (!need) {
@@ -300,12 +298,12 @@ function showNeedDetails(id) {
     showModal(detailsHtml);
 }
 
-// Attaches listeners to the visualization page
+
 function attachVisualizacaoListeners() {
     const searchBar = document.getElementById('searchBar');
     const filterType = document.getElementById('filterType');
 
-    // Main filter function
+
     function applyFilters() {
         const searchTerm = searchBar.value.toLowerCase();
         const selectedType = filterType.value;
@@ -323,9 +321,7 @@ function attachVisualizacaoListeners() {
     filterType.addEventListener('change', applyFilters);
 }
 
-// --- Navigation and Initialization ---
 
-// Event listeners for navigation
 homeLink.addEventListener('click', (e) => {
     e.preventDefault();
     renderHomePage();
@@ -341,5 +337,5 @@ visualizacaoLink.addEventListener('click', (e) => {
     renderVisualizacaoPage();
 });
 
-// Initializes the page on load
+
 document.addEventListener('DOMContentLoaded', renderHomePage);

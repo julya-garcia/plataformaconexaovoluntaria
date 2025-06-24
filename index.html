@@ -11,36 +11,45 @@
     <!-- Link para o arquivo CSS separado -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-pastel-green-light">
+<body>
+    <!-- O background do body agora é controlado diretamente pelo CSS 'body { background-color: var(--color-off-white); }' -->
 
     <!-- Cabeçalho -->
     <header class="bg-pastel-green-dark shadow-lg py-4">
-        <nav class="container mx-auto px-4 flex justify-between items-center">
-            <a href="#" id="homeLink" class="text-white text-2xl font-bold rounded-md px-3 py-2 hover:bg-opacity-80 transition-all">
+        <nav class="container mx-auto flex justify-between items-center">
+            <!-- Link da Home com estilo de botão de navegação -->
+            <a href="#" id="homeLink" class="text-white text-2xl font-bold nav-link-animation">
                 Plataforma Voluntária
             </a>
             <ul class="flex space-x-6">
-                <li><a href="#" id="cadastroLink" class="text-white text-lg font-medium hover:underline hover:text-opacity-90 transition-all button-animation px-3 py-2 rounded-md">Cadastrar Necessidade</a></li>
-                <li><a href="#" id="visualizacaoLink" class="text-white text-lg font-medium hover:underline hover:text-opacity-90 transition-all button-animation px-3 py-2 rounded-md">Ver Necessidades</a></li>
+                <li>
+                    <!-- Link de Cadastro com estilo de botão de navegação -->
+                    <a href="#" id="cadastroLink" class="text-white text-lg font-medium nav-link-animation">Cadastrar Necessidade</a>
+                </li>
+                <li>
+                    <!-- Link de Visualização com estilo de botão de navegação -->
+                    <a href="#" id="visualizacaoLink" class="text-white text-lg font-medium nav-link-animation">Ver Necessidades</a>
+                </li>
             </ul>
         </nav>
     </header>
 
     <!-- Conteúdo Principal -->
+    <!-- O conteúdo das páginas será carregado aqui via JavaScript (script.js) -->
     <main id="app-root" class="flex-grow container mx-auto px-4 py-8 fade-in">
-        <!-- O conteúdo das páginas será carregado aqui via JavaScript -->
     </main>
 
     <!-- Rodapé -->
     <footer class="bg-pastel-green-dark text-white text-center py-6 mt-auto">
-        <p>&copy; 2024 Plataforma de Conexão Voluntária Local. Todos os direitos reservados.</p>
+        <p>&copy; 2025 Plataforma de Conexão Voluntária Local. Todos os direitos reservados.</p>
     </footer>
 
     <!-- Modal de Mensagem -->
     <div id="messageModal" class="modal hidden">
         <div class="modal-content">
             <span class="modal-close" id="closeModalBtn">&times;</span>
-            <p id="modalMessage" class="text-text-dark text-lg font-medium"></p>
+            <!-- A cor do texto do modal agora é controlada pela variável CSS --color-true-black -->
+            <p id="modalMessage" class="text-true-black text-lg font-medium"></p>
         </div>
     </div>
 

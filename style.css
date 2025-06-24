@@ -21,7 +21,7 @@
     --color-light-grey-border: #E8E8E8; /* Cinza claro para bordas, mais suave */
     --color-medium-grey: #B0BEC5; /* Cinza médio para texto secundário e placeholders */
     --color-dark-grey: #546E7A; /* Cinza escuro para texto principal, mais suave que o preto */
-    --color-true-black: #1A1A1A; /* Definindo um preto suave para todos os textos principais e títulos */
+    --color-true-black: #1A1A1A; /* Definindo um preto suave para todas as fontes */
 
     /* Sombras refinadas para mais profundidade e suavidade */
     --shadow-light: 0 8px 20px rgba(0, 0, 0, 0.04); /* Sombra mais difusa e menos opaca */
